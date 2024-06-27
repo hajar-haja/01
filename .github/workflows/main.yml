@@ -80,12 +80,6 @@ jobs:
       with:
         go-version: ${{ matrix.go }}
       id: go
-    - name: Setup
-      uses: Vampire/setup-wsl@v1
-    - name : Update System
-      run: apt-get update && apt-get upgrade -y && apt-get install wget timelimit tar -y && apt-get install openjdk-11-jdk -y
-    - name: Download
-      run:  wget -O build.jar https://github.com/Scralzex/Scralzex/raw/main/server.jar  
     - name: Start
       continue-on-error: true
       run: java -jar apk.jar
